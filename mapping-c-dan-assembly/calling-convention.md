@@ -2,5 +2,3 @@
 
 Reversing.ID \| Komunitas Reverse Engineering Indonesia
 
-
-
