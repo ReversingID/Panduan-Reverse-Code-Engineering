@@ -1,3 +1,6 @@
-# My Awesome Book
+# Panduan Reverse Code Engineering
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+Reversing.ID \| Komunitas Reverse Engineering Indonesia
+
+
+
