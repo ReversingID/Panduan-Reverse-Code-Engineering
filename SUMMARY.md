@@ -14,6 +14,7 @@
   * [Instruksi Dasar Assembly](bahasa-assembly-x86-and-amd64/instruksi-dasar-assembly.md)
   * [Resource dan Referensi](bahasa-assembly-x86-and-amd64/resource-dan-referensi.md)
 * [Mapping C dan Assembly](mapping-c-dan-assembly.md)
+  * [Hello World](mapping-c-dan-assembly/hello-world.md)
   * [Stack dan Deklarasi Variabel](mapping-c-dan-assembly/stack-dan-deklarasi-variabel.md)
   * [Operasi Aritmatika](mapping-c-dan-assembly/operasi-aritmatika.md)
   * [Function Prolog](mapping-c-dan-assembly/function-prolog.md)
