@@ -1,4 +1,3 @@
-# Panduan Reverse Code Engineering
+# Mapping C ke Assembly
 
-Reversing.ID \| Komunitas Reverse Engineering Indonesia
-
+Pada bab ini kita akan mempelajari bagaimana bentuk kode bahasa C jika diubah menjadi kode assembly. Disini kita akan mencoba program - program C sederhana yang akan kita compile dan setelah itu akan kita lihat seperti apa bentuk kode assembly yang dihasilkan oleh compiler. Dengan mempelajari contoh - contoh program yang dicompile menjadi assembly kita akan menemukan pola yang dapat kita manfaatkan untuk mereverse engineering program binary yang dibuat dari C.
