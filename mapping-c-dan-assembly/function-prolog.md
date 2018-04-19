@@ -30,6 +30,8 @@ int main(void)
 }
 ```
 
+Kita compile dan lihat hasil assemblynya.
+
 ```
 $ gcc -o hello hello.c
 $ gdb -batch -ex 'file hello' -ex 'disas main'
