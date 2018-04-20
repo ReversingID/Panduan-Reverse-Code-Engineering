@@ -155,11 +155,12 @@ Sekarang kita akan mempelajari bagaimana pengurangan dilakukan pada bilangan bin
 ### Cara #2 
 - Pertama operand kedua (5) diubah menjadi bilangan negatif, seperti pada bagian sebelumnya (2.5 tentang signed dan unsigned number). 00000101 diubah, bit 1 menjadi 0, dan bit 0 menjadi 1 hasilnya 11111010. Setelah itu ditambahkan 1 menjadi 11111011.
 - Selanjutnya 10 ditambahkan dengan -5 (yg sebelmunya sudah diubah ke negatif)
-
+```
 00001010 (10)
 11111011 (-5)
 ---------+
 100000101
+```
 - Hasilnya adalah 100000101 (9 bit), kenapa 9 bit ?, karena terjadi carry pada bit terakhir. Kita buang saja bit terakhir itu menjadi 00000101 (5), dan itulah hasilnya.
 
 # Representasi Data
