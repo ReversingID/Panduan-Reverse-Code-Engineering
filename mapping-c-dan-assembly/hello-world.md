@@ -24,7 +24,7 @@ Dump of assembler code for function main:
 End of assembler dump. 
 ```
 
-    Saya mengatur agar GDB menampilkan output assembly dengan syntax intel, untuk mengatur agar GDB menampilkan syntax intel tambahkan baris baru dengan isi `set disassembly-flavor intel` di file ~/.gdbinit
+> Saya mengatur agar GDB menampilkan output assembly dengan syntax intel, untuk mengatur agar GDB menampilkan syntax intel tambahkan baris baru dengan isi `set disassembly-flavor intel` di file ~/.gdbinit
 
 Lihat output assembly diatas. Dengan melihat intruksi `mov eax,0x539` bisa kita simpulkan bahwa return value akan disimpan di register eax. Lalu apa gunanya intruksi-lainnya seperti intruksi `push rbp`, `mov rbp, rsp` ?, jawabannya akan kita lihat dibagian lain setelah ini.
 
@@ -74,7 +74,7 @@ End of assembler dump.
 
 Kita lihat output assembly diatas, terdapat pemenggilan ke fungsi puts.
 
-    Kenapa bukan printf yang dipanggil ?, Itu adalah builtin optimization dari GCC yang mengganti setiap printf ke puts kecuali string yang akan ditampilkan berisi format string.
+> Kenapa bukan printf yang dipanggil ?, Itu adalah builtin optimization dari GCC yang mengganti setiap printf ke puts kecuali string yang akan ditampilkan berisi format string.
 
 
 Sebelum instruksi call terdapat instruksi `lea rdi,[rip+0x92]`. Lihat nilai yang berada setelah `#`, GDB telah memberikan kita hint bahwa [rip+0x92] itu akan menunjuk ke alamat `0x400584`. Sekarang kita lihat ada nilai apa yang berada di alamat `0x400584`

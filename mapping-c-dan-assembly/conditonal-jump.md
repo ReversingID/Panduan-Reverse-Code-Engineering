@@ -20,7 +20,7 @@ int main(void)
 }
 ```
 
-Kode diatas, akan memangil fungsi `f()` dengan argumen `y`, pada  fungsi `f` argumen akan dicek apakah bernilai 10 ?, jika ya `printf()` akan dieksekusi. Sekarang kita compile dan lihat output assemblynya.
+Kode diatas akan memangil fungsi `f()` dengan argumen `y`, pada  fungsi `f` argumen akan dicek apakah bernilai 10 ?, jika ya `printf()` akan dieksekusi. Sekarang kita compile dan lihat output assemblynya.
 
 ```
 $ gcc -o jump jump.c
@@ -107,3 +107,67 @@ End of assembler dump.
 ```
 
 Kita fokus pada fungsi `f()`. Pertama register edi sebagai argumen pertama disimpan di `[rbp-0x4]`. Setelah itu ada instruksi `cmp` yang membandingkan nilai yang berada di `[rbp-0x4]` dengan angka `5`. Instruksi `jle 0x400506`  yang membuat eksekusi akan loncat ke alamat `0x400506` jika nilai yang dibandingkan sebelumnya lebih kecil atau sama dengan (*jump if less than or equal*). Dan juga pada `main+29` terdapat instruksi `jmp 0x400512`, instruksi tersebut untuk mengakhiri blok if (jika blok if yang dieksekusi).
+
+## Switch - Case
+Conditional jump juga dapat dilakukan dengan statement Switch - case. Seperti kode C dibawah ini.
+
+``` c
+#include <stdio.h>
+
+void f(int x)
+{
+    switch(x)
+    {
+    case 0:
+        printf("Bad\n");
+        break;
+    case 1:
+        printf("Good!\n");
+        break;
+    default:
+        printf("Good or Bad ?\n");
+        break;
+    }
+}
+
+int main(void)
+{
+    int y = 1;
+    f(y);
+}
+```
+
+Sekarang kita compile dan lihat hasil assemblynya
+
+```
+$ gcc -o switch_case switch_case.c
+$ gdb -batch -ex 'file switch_case' -ex 'disas f'
+Dump of assembler code for function f:
+   0x00000000004004e7 <+0>:     push   rbp
+   0x00000000004004e8 <+1>:     mov    rbp,rsp
+   0x00000000004004eb <+4>:     sub    rsp,0x10
+   0x00000000004004ef <+8>:     mov    DWORD PTR [rbp-0x4],edi
+   0x00000000004004f2 <+11>:    mov    eax,DWORD PTR [rbp-0x4]
+   0x00000000004004f5 <+14>:    test   eax,eax
+   0x00000000004004f7 <+16>:    je     0x400500 <f+25>
+   0x00000000004004f9 <+18>:    cmp    eax,0x1
+   0x00000000004004fc <+21>:    je     0x40050e <f+39>
+   0x00000000004004fe <+23>:    jmp    0x40051c <f+53>
+   0x0000000000400500 <+25>:    lea    rdi,[rip+0xcd]        # 0x4005d4
+   0x0000000000400507 <+32>:    call   0x4003f0 <puts@plt>
+   0x000000000040050c <+37>:    jmp    0x400529 <f+66>
+   0x000000000040050e <+39>:    lea    rdi,[rip+0xc3]        # 0x4005d8
+   0x0000000000400515 <+46>:    call   0x4003f0 <puts@plt>
+   0x000000000040051a <+51>:    jmp    0x400529 <f+66>
+   0x000000000040051c <+53>:    lea    rdi,[rip+0xbb]        # 0x4005de
+   0x0000000000400523 <+60>:    call   0x4003f0 <puts@plt>
+   0x0000000000400528 <+65>:    nop
+   0x0000000000400529 <+66>:    nop
+   0x000000000040052a <+67>:    leave  
+   0x000000000040052b <+68>:    ret    
+End of assembler dump.
+```
+
+Pada `main+14` perbandingan dilakukan menggunakan instruksi `test eax, eax`. Instruksi `test` pada assembly, berkerja seperti instruksi `and`, hanya saja instruksi `test` hanya berpengaruh pada flag. Dengan kata lain, instruksi `test eax, eax` sama berlakunya dengan instruksi `cmp eax, 0`.
+
+Pada `main+16` terdapat jump ke alamat 0x40050e jika 2 nilai yang dibandingkan sebelumnya bernilai sama, yakni `eax == 0`. Setelah itu terdapat instruksi `cmp eax, 0x1; je 0x40050e`, artinya eksekusi instruksi akan loncat ke alamat 0x40050e jika eax bernilai 1. Dilanjutkan dengan instruksi `jmp 0x40051c`, instruksi ini akan dieksekusi jika pada perbandingan - perbandingan sebelumnya tidak memenuhi syarat, sehingga masuk ke branch default pada switch case.
