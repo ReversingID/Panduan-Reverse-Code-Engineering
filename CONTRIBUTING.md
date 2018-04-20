@@ -8,8 +8,8 @@ Anda dapat membuat issue baru di repository ini, dengan cara kunjungi [repositor
 ## 2. Melakukan Pull Request
 Melakukan Pull Request artinya anda melakukan perubahan pada buku ini oleh anda sendiri. Setelah perubahan telah dilakukan anda dapat melakukan pull request untuk menyatukan perubahan yang telah anda lakukan. Langkah - langkahnya sebagai berikut.
 
-1. Pertama fork repository [ini](https://github.com/ReversingID/Panduan-Reverse-Code-Engineering)
-2. Clone repository yang telah di fork, dengan perintah `$ git clone https://github.com/<your_username/Panduan-Reverse-Code-Engineering`
-3. Lakukan perubahan pada repository anda
+1. Pertama fork repository [ini](https://github.com/ReversingID/Panduan-Reverse-Code-Engineering).
+2. Clone repository yang telah di fork, dengan perintah `$ git clone https://github.com/<your_username/Panduan-Reverse-Code-Engineering`.
+3. Lakukan perubahan pada repository anda.
 
-Selengkapnya baca di link berikut : https://help.github.com/articles/creating-a-pull-request/
+Selengkapnya baca pada link berikut : https://help.github.com/articles/creating-a-pull-request/

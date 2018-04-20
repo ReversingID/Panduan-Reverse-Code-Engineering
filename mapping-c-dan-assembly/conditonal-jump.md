@@ -39,7 +39,7 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 
-Lihat kode assembly pada fungsi `main()` diatas. Nilai `0xa` akan diisi ke alamat `[rbp-0x4]`, `[rbp-0x4]` bisa kita simpulkan bahwa itu adalah lokasi memory yang ditempati variable `y`. Setelah itu nilai yang terdapat di `[rbp-0x4]` akan diisi ke `eax` dan register `eax` akan dicopy ke `edi` sebagai tempat untuk argumen pertama.
+Lihat kode assembly pada fungsi `main()` diatas. Nilai `0xa` akan diisi ke alamat `[rbp-0x4]`, `[rbp-0x4]` bisa kita simpulkan bahwa itu adalah lokasi memory yang ditempati variable `y`. Setelah itu, nilai yang terdapat di `[rbp-0x4]` akan diisi ke `eax` dan register `eax` akan dicopy ke `edi` sebagai tempat untuk argumen pertama.
 
 Sekarang kita lihat kode assembly pada fungsi `f()`.
 ```
@@ -59,4 +59,4 @@ $ Dump of assembler code for function f:
 End of assembler dump.
 ```
 
-Pertama register edi (sebagai argumen pertama) dimasukkan ke lokasi memory `[rbp+0x4]`. Setelah itu ada instruksi `cmp`, instruksi `cmp` digunakan untuk membandingkan 2 buah nilai, dalam hal ini nilai `0xa` dibandingkan dengan nilai yang berada di `rbp-0x4`. Dan terdapat instruksi `jne 0x400504`, instruksi `jne` singkatan dari `jump if not equal`, Jadi, program akan loncat ke alamat `0x400504` jika nilai yang dibandingkan sebelumnya tidak sama. Jika kedua nilai sama, maka program tidak loncat, dan melanjutkan eksekusi instruksi pada lamat `0x4004f8`.
+Pertama, register edi (sebagai argumen pertama) dimasukkan ke lokasi memory `[rbp+0x4]`. Setelah itu, ada instruksi `cmp`, instruksi `cmp` digunakan untuk membandingkan 2 buah nilai, dalam hal ini nilai `0xa` dibandingkan dengan nilai yang berada di `rbp-0x4`. Dan terdapat instruksi `jne 0x400504`, instruksi `jne` singkatan dari `jump if not equal`, Jadi, program akan loncat ke alamat `0x400504` jika nilai yang dibandingkan sebelumnya tidak sama. Jika kedua nilai sama, maka eksekusi program tidak akan loncat, dan melanjutkan eksekusi instruksi pada alamat `0x4004f8`.
