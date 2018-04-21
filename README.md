@@ -8,5 +8,5 @@ Kami melihat sedikitnya referensi reverse engineering dalam bahasa indonesia dan
 
 NOTE: Buku ini masih dalam tahap pembuatan. Perubahan dan penambahan akan terus dilakukan dalam waktu yang tidak ditentukan.
 
-## Bagaimana caranya bekontribusi ?
+## Bagaimana caranya berkontribusi ?
 Baca selengkapnya [disini](./CONTRIBUTING.md)
