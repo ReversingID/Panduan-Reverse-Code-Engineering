@@ -12,4 +12,4 @@ Melakukan Pull Request artinya anda melakukan perubahan pada buku ini oleh anda 
 2. Clone repository yang telah di fork, dengan perintah `$ git clone https://github.com/<your_username/Panduan-Reverse-Code-Engineering`.
 3. Lakukan perubahan pada repository anda.
 
-Selengkapnya baca pada link berikut : https://help.github.com/articles/creating-a-pull-request/
+Selengkapnya baca pada link berikut : https://help.github.com/articles/creating-a-pull-request/.
