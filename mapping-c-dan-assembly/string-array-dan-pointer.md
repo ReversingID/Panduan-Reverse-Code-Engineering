@@ -117,3 +117,34 @@ Kode assembly yang dihasilkan cukup panjang, tapi saya akan membahasnya satu-sat
 Kita langsung fokus pada inti kode yang berada didalam for, kode yang for berada pada `main+45` sampai `main+68`. Variable counter yakni variable i berlokasi pada `[rbp-0x4]`. Pada `main+45` variable i disimpan di register eax, setelah itu ada instruksi `cdqe`, instruksi `cdqe` akan mengkonversi nilai dword pada eax menjadi qword.
 
 Pada `main+50` terdapat instruksi `mov eax,DWORD PTR [rbp+rax*4-0x20]`, instruksi ini akan mengakses elemen ke `i` pada variable `arr`. Angka `-0x20` digunakan untuk menunjuk ke variable array, karena variable i berlokasi di `rbp-0x20`. Sementara `rax*4` akan menghasilkan offset untuk menunjuk ke elemen pada variable array. Jika kita lihat di instruksi sebelumnya, register rax telah diisi oleh variable i. Jadi nilai `i*4` digunakan untuk menunjuk nilai elemen ke i pada array. Sementara, angka 4 merupakan besar dari tipe data integer, karena tipe integer mempunyai besar 4 byte.
+
+## Pointer
+Pointer merupakan variable yang menyimpan alamat memory untuk variable lain, seperti contoh kode C dibawah ini.
+
+``` c
+#include <stdio.h>
+
+int main(void)
+{
+    int a = 10;
+    int *p = &a;
+}
+```
+
+Sekarang kita compile dan lihat hasil assemblynya.
+```
+$ gcc -o pointer pointer.c
+$ gdb -batch -ex 'file pointer' -ex 'disas main'
+Dump of assembler code for function main:
+   0x0000000000400497 <+0>:     push   rbp
+   0x0000000000400498 <+1>:     mov    rbp,rsp
+   0x000000000040049b <+4>:     mov    DWORD PTR [rbp-0xc],0xa
+   0x00000000004004a2 <+11>:    lea    rax,[rbp-0xc]
+   0x00000000004004a6 <+15>:    mov    QWORD PTR [rbp-0x8],rax
+   0x00000000004004aa <+19>:    mov    eax,0x0
+   0x00000000004004af <+24>:    pop    rbp
+   0x00000000004004b0 <+25>:    ret    
+End of assembler dump.
+```
+
+Variable a berlokasi di `rbp-0xc`. Pada main+11 terdapat instruksi `lea` yang akan menghasilkan alamat memory untuk variable i. hasil dari instruksi lea akan disimpan di register `rax` dan `rax` yang telah berisi alamat memory akan disimpan di `rbp-0x8`. `rbp-0x8` merupakan lokasi memory untuk variable pointer p.
