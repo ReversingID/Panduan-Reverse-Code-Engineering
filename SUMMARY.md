@@ -18,6 +18,7 @@
   * [Function Prolog](mapping-c-dan-assembly/function-prolog.md)
   * [Stack dan Deklarasi Variabel](mapping-c-dan-assembly/stack-dan-deklarasi-variabel.md)
   * [Operasi Aritmatika](mapping-c-dan-assembly/operasi-aritmatika.md)
+  * [Operator Logika](mapping-c-dan-assembly/operator-logika.md)
   * [Calling Convention](mapping-c-dan-assembly/calling-convention.md)
   * [Conditonal Jump \(If-Else, Switch-Case\)](mapping-c-dan-assembly/conditonal-jump.md)
   * [Loops](mapping-c-dan-assembly/loops.md)
